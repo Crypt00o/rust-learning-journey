@@ -78,7 +78,7 @@ impl Person {
         }
     }
 
-    fn init_hacker(name: &str, age: u8, language: &str, skills: &str) -> Person {
+    fn init_hacker(name: &str, age: u8, language: &str, skills: &str) -> Self {
         return Self::Hacker {
             name: String::from(name),
             age,
@@ -87,19 +87,54 @@ impl Person {
         };
     }
 
-    fn init_normal_person(name: &str, age: u8) -> Person {
+    fn init_normal_person(name: &str, age: u8) -> Self {
         return Self::NormalPerson {
             name: String::from(name),
             age,
         };
     }
 
-    fn init_developer(name: &str, age: u8, language: &str) -> Person {
+    fn init_developer(name: &str, age: u8, language: &str) -> Self {
         return Self::Developer {
             name: String::from(name),
             age,
             language: String::from(language),
         };
+    }
+
+    fn clone(&self) -> Self {
+        match self {
+            Self::Hacker {
+                name,
+                age,
+                language,
+                skills,
+            } => {
+                return Self::Hacker {
+                    name: name.clone(),
+                    age: *age,
+                    language: language.clone(),
+                    skills: skills.clone(),
+                }
+            }
+            Self::Developer {
+                name,
+                age,
+                language,
+            } => {
+                return Self::Developer {
+                    name: name.clone(),
+                    age: *age,
+                    language: language.clone(),
+                };
+            }
+            Self::NormalPerson { name, age } => {
+                return Self::NormalPerson {
+                    name: name.clone(),
+                    age: *age,
+                };
+            }
+        }
     }
 
     fn clear(&mut self) {
