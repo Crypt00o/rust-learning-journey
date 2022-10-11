@@ -192,4 +192,13 @@ fn main() {
     let cat2: Animal = Animal::Cat;
     println!("\nis cat2 equal to cat ?  {} ", cat2.is_equal_to(&cat));
     println!("\nis cat  equal to dog ?  {} ", cat.is_equal_to(&dog));
+
+
+    //if let equal
+        if let Animal::Cat=cat{
+           println!("equal to cat useing if let equal"); 
+
+        }
+
+
 }
