@@ -2,6 +2,8 @@
 //Result<T,E> mean : Result<value_type,error_type>
 
 fn main(){
+
+
    //declareing an Result<valuetype,errtype>
 
     let mut some_result:Result<&str,&str>=Ok("value");
@@ -41,8 +43,16 @@ fn main(){
     // is_err(&self)->bool return true if  result return Err(error);
 
     if some_result.is_err(){
-        println!("no error");
+        println!("there is an  error");
     }
+
+    // mapping ok value , .map(&self,fn)->Result<fn return type , error type>
+
+    let some_result_length=some_result.map(|s|s.len()).unwrap_or_default();
+
+    // mapping Err error , .map_err(&self,fn)->Result<value type , fn return type>
+
+    let error_length=some_result.map_err(|s|s.len()).unwrap_or_default();
 
 
 }
