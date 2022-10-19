@@ -30,13 +30,16 @@ impl <'l1> NewName<'l1> for Person<'l1>{
     }
 }
 
-impl std::fmt::Display for Person{
+//traits as parameters 
 
+fn trait_as_patameter(name_length:&impl NameLength){
+    println!("{}",name_length.name_len());
 }
+
 
 
 fn main(){
 let person=Person::new("eslam", 20);
 println!("length of name : {} is {}",person.name , person.name_len());
-
+trait_as_patameter(&person);
 }

@@ -1,0 +1,4 @@
+macros in rust and how to write a macro
+writeing macros for instances
+what is formatter ? 
+
