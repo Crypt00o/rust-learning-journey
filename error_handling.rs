@@ -1,7 +1,7 @@
 //Result Type Contain Ok() or Err() some like Option ,Some(),None
 //Result<T,E> mean : Result<value_type,error_type>
 
-fn main(){
+fn error_handling(){
 
 
    //declareing an Result<valuetype,errtype>
@@ -53,6 +53,22 @@ fn main(){
     // mapping Err error , .map_err(&self,fn)->Result<value type , fn return type>
 
     let error_length=some_result.map_err(|s|s.len()).unwrap_or_default();
+
+    //panic!("error message") , panic is a macro that throw an error message and exit
+    
+
+    match some_result {
+        Ok(value)=>{},
+        Err(error)=>{panic!(" error : {} ", error)}
+    }
+
+
+
+}
+
+
+
+fn main(){
 
 
 }
